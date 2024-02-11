@@ -42,7 +42,7 @@ public class Follow : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if(isBus)
+            if(isBus && movementSc.istasyondaMi)
             {
                 otobusDur = true;
                 yield return new WaitForSeconds(otobusSure);

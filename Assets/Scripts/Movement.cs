@@ -16,12 +16,13 @@ public class Movement : MonoBehaviour
     private bool leftBackward;
     public bool yayaYolundaMi = false;
     private Transform sonKaldirim;
-    private bool istasyondaMi = false;
+    public bool istasyondaMi = false;
     private bool otobusGeldiMi = false;
     private int otobusSayi;
     private bool otobusIsinlandiMi = false;
     public Transform parkOtobus;
     public Follow followSc;
+    public GameObject olumEkrani;
 
 
 
@@ -80,6 +81,11 @@ public class Movement : MonoBehaviour
             transform.position = parkOtobus.position;
             otobusIsinlandiMi = true;
         }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            transform.position = new Vector3(sonKaldirim.position.x, 0.5f, sonKaldirim.position.z);
+        }
     }
 
     void FixedUpdate()
@@ -111,11 +117,14 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other) 
+    private IEnumerator OnCollisionEnter(Collision other) 
     {
-        if(other.gameObject.CompareTag("Car"))
+        if(other.gameObject.CompareTag("Car") || other.gameObject.CompareTag("Otobüs"))
         {
             transform.position = new Vector3(sonKaldirim.position.x, 0.5f, sonKaldirim.position.z);
+            olumEkrani.SetActive(true);
+            yield return new WaitForSeconds(5f);
+            olumEkrani.SetActive(false);
         }
     }
 

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Demo");
     }
-    public void oyundanCýk()
+    public void oyundanCÄ±k()
     {
         Application.Quit();
     }
