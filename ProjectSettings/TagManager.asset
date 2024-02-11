@@ -9,6 +9,14 @@ TagManager:
   - Kaldirim
   - Istasyon
   - "Otob\xFCs"
+  - SahteCicekGir
+  - SahteCicekCik
+  - CicekGir
+  - "Cicek\xC7ik"
+  - "CicekAsans\xF6rGir"
+  - "CicekAsans\xF6r\xC7ik"
+  - EczaneGir
+  - "Eczane\xC7ik"
   layers:
   - Default
   - TransparentFX

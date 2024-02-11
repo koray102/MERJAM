@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour {
     public GameObject Durak;
     public GameObject Bank;
 
+	public GameObject[] managers;
+
 
 
     // Use this for initialization
@@ -62,45 +64,45 @@ public class DialogueManager : MonoBehaviour {
 		{
 			if(indexDialog == 3)
 			{
-				if(nameText.text == "B" || nameText.text == "Çiçekçi")
+				if(nameText.text == "B" || nameText.text == "Ã‡iÃ§ekÃ§i")
 				{
                     nameText.text = "Hakan";
                 }
 				else if(nameText.text == "Hakan")
 				{
-                    nameText.text = "Çiçekçi";
+                    nameText.text = "Ã‡iÃ§ekÃ§i";
                 }
 			}else if(indexDialog == 5)
 			{
-                if (nameText.text == "B" || nameText.text == "Eczacý Selin")
+                if (nameText.text == "B" || nameText.text == "EczacÄ± Selin")
 				{
                     nameText.text = "Hakan";
                 }
                 else if (nameText.text == "Hakan")
                 {
-                    nameText.text = "Eczacý Selin";
+                    nameText.text = "EczacÄ± Selin";
                 }
             }
 			else if(indexDialog == 6) 
 			{
-                if (nameText.text == "B" || nameText.text == "Otobüs Þoförü")
+                if (nameText.text == "B" || nameText.text == "OtobÃ¼s ÅŸofÃ¶rÃ¼")
                 {
                     nameText.text = "Hakan";
                 }
                 else if (nameText.text == "Hakan")
                 {
-                    nameText.text = "Otobüs Þoförü";
+                    nameText.text = "OtobÃ¼s ÅŸofÃ¶rÃ¼";
                 }
             }
             else if (indexDialog == 7)
             {
-                if (nameText.text == "B" || nameText.text == "Diðer Otobüs Þoförü")
+                if (nameText.text == "B" || nameText.text == "DiÄŸer OtobÃ¼s ÅžofÃ¶rÃ¼")
                 {
                     nameText.text = "Hakan";
                 }
                 else if (nameText.text == "Hakan")
                 {
-                    nameText.text = "Diðer Otobüs Þoförü";
+                    nameText.text = "DiÄŸer OtobÃ¼s ÅžofÃ¶rÃ¼";
                 }
             }
             else if (indexDialog == 9)
@@ -115,9 +117,6 @@ public class DialogueManager : MonoBehaviour {
                 }
             }
         }
-		
-			
-
 
 		string sentence = sentences.Dequeue();
 		StopAllCoroutines();
@@ -143,51 +142,66 @@ public class DialogueManager : MonoBehaviour {
 
 		if(indexDialog == 1)
 		{
-			Gorevler.text = "Diðer Çiçekçiye Git";
+			Gorevler.text = "DiÄŸer Ã§iÃ§ekÃ§iye Git";
 			Cicek1.SetActive(false);
+			managers[0].SetActive(false);
+			managers[1].SetActive(true);
 		}
 		else if(indexDialog == 2)
 		{
-            Gorevler.text = "Asansör Ýle Çiçekçinin Katýna Çýk";
+            Gorevler.text = "AsansÃ¶r ile Ã§iÃ§ekÃ§inin KatÄ±na Ã§Ä±k";
 			Cicek2.SetActive(false);
+			managers[1].SetActive(false);
+			managers[2].SetActive(true);
         }
         else if (indexDialog == 3)
         {
 			cicek.gameObject.SetActive(true);
-            Gorevler.text = "Ýlaçlarýný almak için tepeye git";
+            Gorevler.text = "ilaÃ§larÄ±nÄ± almak iÃ§in tepeye git";
 			Eczane.SetActive(true);
+			managers[2].SetActive(false);
+			managers[3].SetActive(true);
         }
         else if (indexDialog == 4)
         {
-            Gorevler.text = "Yokuþu çýk ve ilaçlarýný al";
+            Gorevler.text = "YokuÅŸu Ã§Ä±kk ve ilaÃ§larÄ±nÄ± al";
+			managers[3].SetActive(false);
+			managers[4].SetActive(true);
         }
         else if (indexDialog == 5)
         {
 			ilac.gameObject.SetActive(true);
-            Gorevler.text = "Parka gitmek için otobüs duraðýna git";
+            Gorevler.text = "Parka gitmek iÃ§in otobÃ¼s duraÄŸÄ±na git";
             Eczane.SetActive(false);
 			Durak.SetActive(true);
+			managers[4].SetActive(false);
+			managers[5].SetActive(true);
         }
         else if (indexDialog == 6)
         {
 			trigger7.SetActive(true);
-            Gorevler.text = "Sonraki otobüsü bekle";
+            Gorevler.text = "Sonraki otobÃ¼sÃ¼ bekle";
             Durak.SetActive(false);
+			managers[5].SetActive(false);
+			managers[6].SetActive(true);
         }
         else if (indexDialog == 7)
         {
             Gorevler.text = "Parka git";
 			Bank.SetActive(true);
+			managers[6].SetActive(false);
+			managers[7].SetActive(true);
         }
         else if (indexDialog == 8)
         {
-            Gorevler.text = "Engelleri aþýp parka git";
+            Gorevler.text = "Engelleri aÅŸÄ±p parka git";
+			managers[7].SetActive(false);
+			managers[8].SetActive(true);
         }
         else if (indexDialog == 9)
         {
             Gorevler.text = "";
+			managers[8].SetActive(false);
         }
-			
 	}
-
 }

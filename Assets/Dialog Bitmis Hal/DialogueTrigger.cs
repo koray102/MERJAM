@@ -9,6 +9,8 @@ public class DialogueTrigger : MonoBehaviour {
     public int indexDialog;
     public Text ilerle;
     public GameObject Manager;
+	public Movement movementSc;
+    public DialogueManager dialogueManager;
 
 
     private bool dialogBasladi = false;
@@ -19,10 +21,10 @@ public class DialogueTrigger : MonoBehaviour {
         {               
             if(dialogBasladi == false)
             {
-                ilerle.text = "Konuþmak için SPACE bas";
+                ilerle.text = "KonuÅŸmak iÃ§in SPACE bas";
             }
 
-            if(indexDialog == 3 || indexDialog == 5 || indexDialog == 6 || indexDialog == 7)
+            if(indexDialog == 3 || indexDialog == 5)
             {              
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -39,15 +41,43 @@ public class DialogueTrigger : MonoBehaviour {
             }
             else if(indexDialog == 1 || indexDialog == 2 || indexDialog == 4 || indexDialog == 8 || indexDialog == 9) 
             {
-                if (dialogBasladi == false)
+                if (dialogBasladi == false && Input.GetKeyDown(KeyCode.Space))
                 {
                     dialogBasladi = true;
                     TriggerDialogue();
                 }
-                if(dialogBasladi == true && Input.GetKeyDown(KeyCode.Space))
+                else if(dialogBasladi == true && Input.GetKeyDown(KeyCode.Space))
                 {
                     NextSentences();
                 }
+            }else if(indexDialog == 6 && movementSc.otobusSayi == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if(dialogBasladi == false)
+                    {
+                        dialogBasladi = true;
+                        TriggerDialogue();
+                    }
+                    else if(dialogBasladi == true)
+                    {
+                        NextSentences();
+                    }
+                }
+            }else if (indexDialog == 7 && movementSc.otobusSayi == 2)
+            {
+               if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if(dialogBasladi == false)
+                    {
+                        dialogBasladi = true;
+                        TriggerDialogue();
+                    }
+                    else if(dialogBasladi == true)
+                    {
+                        NextSentences();
+                    }
+                } 
             }
 
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -18,11 +19,19 @@ public class Movement : MonoBehaviour
     private Transform sonKaldirim;
     public bool istasyondaMi = false;
     private bool otobusGeldiMi = false;
-    private int otobusSayi;
+    public int otobusSayi;
     private bool otobusIsinlandiMi = false;
     public Transform parkOtobus;
     public Follow followSc;
     public GameObject olumEkrani;
+    public Transform cicekSahteGiris;
+    public Transform cicekSahteCikis;
+    public Transform cicekGercekGiris;
+    public Transform cicekGercekCikis;
+    public Transform cicekGercekAsansörGiris;
+    public Transform cicekGercekAsansörCikis;
+    public Transform EczaneGiris;
+    public Transform EczaneCikis;
 
 
 
@@ -152,6 +161,46 @@ public class Movement : MonoBehaviour
         if(other.tag == "Istasyon")
         {
             istasyondaMi = true;
+        }
+
+        if(other.tag == "SahteCicekGir" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = cicekSahteCikis.position;
+        }
+
+        if(other.tag == "SahteCicekCik" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = cicekSahteGiris.position;
+        }
+
+        if(other.tag == "CicekGir" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = cicekGercekCikis.position;
+        }
+
+        if(other.tag == "CicekÇik" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = cicekGercekGiris.position;
+        }
+
+        if(other.tag == "CicekAsansörGir" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = cicekGercekAsansörCikis.position;
+        }
+
+        if(other.tag == "CicekAsansörÇik" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = cicekGercekAsansörGiris.position;
+        }
+
+        if(other.tag == "EczaneGir" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = EczaneCikis.position;
+        }
+
+        if(other.tag == "EczaneÇik" && Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = EczaneGiris.position;
         }
     }
 
